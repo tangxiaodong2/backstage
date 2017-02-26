@@ -1,0 +1,97 @@
+/*************登录页面***************/
+html,body{
+	width:100%;
+	height:100%;
+	font-family: Microsoft YaHei;
+}
+.wrapper{
+	width:100%;
+	height:100%;
+}
+header,footer{
+	height:50px;
+	background-color:#333;
+	color:#fff;
+	line-height: 50px;
+	font-size: 16px;
+	padding-left: 20px;
+}
+footer{
+	font-size: 14px;
+	padding-right: 20px;
+}
+.container{
+	padding-top: 60px;
+}
+.pink{
+	background-color:pink;
+}
+/********用户信息 (退出)********/
+.userInfo{
+	float: right;
+}
+.userInfo i{
+	font-size: 26px;
+	vertical-align: middle;
+}
+.userInfo i:last-child{
+	padding-right: 10px;
+	cursor: pointer;
+}
+/*************首页布局******************/
+.homeWrap{
+	width: 100%;
+	height:100%;
+	display: flex;	
+	flex-direction: column;
+}
+/*************左侧菜单****************/
+.content{
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	-o-flex: 1;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+}
+.aside{
+	width:150px;
+	background: #eee;
+	text-align: center;
+}
+.aside dt{
+	font-size:18px;
+	line-height: 2em;
+}
+.aside dt span{
+	font-size: 15px;
+	padding-right: 10px;
+}
+.aside dd a{
+	line-height: 2em;
+	font-size: 15px;
+}
+.aside dd:hover{
+	background: #fff;
+}
+.aside .active{
+	background: #337ab7;
+	
+}
+.aside .active a{
+	color: #fff;
+}
+.aside dd:hover a{
+	color: #337ab7;
+	text-decoration: none;
+}
+/************右侧视图窗口***************/
+.main{
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	-o-flex: 1;
+	flex: 1;
+	background: pink;
+}

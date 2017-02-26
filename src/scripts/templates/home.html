@@ -1,0 +1,36 @@
+<!-- <div ng-include="'src/scripts/templates/blocks/header.html'" scope="" onload=""></div> -->
+<div class="homeWrap">
+	<header>
+		<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 中药材监测预警系统后台
+		<span class="userInfo"><i class="glyphicon glyphicon-user"></i> {{username}} | <i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+	</header>
+	<div class="content">
+		<div class="aside">
+			<dl class="nav nav-pills">
+				<dt><span class="glyphicon glyphicon-tasks"></span>数据监测</dt>
+				<dd><a href="">采购预警</a></dd>
+				<dd class="active"><a href="">存货预警</a></dd>
+				<dd><a href="">销售预警</a></dd>
+				<dd><a href="">行情价格</a></dd>
+			</dl>
+			<dl class="nav nav-pills">
+				<dt><span class="glyphicon glyphicon-book"></span>权限管理</dt>
+				<dd><a href="">账号管理</a></dd>
+				<dd><a href="">权限管理</a></dd>
+			</dl>
+			<dl class="nav nav-pills">
+				<dt><span class="glyphicon glyphicon-cog"></span>基础设置</dt>
+				<dd><a href="">采购预警</a></dd>
+				<dd><a href="">存货预警</a></dd>
+			</dl>
+		</div>
+		<div class="main">
+			<div ui-view></div>	
+		</div>
+	</div>
+	<footer class="text-right">
+		version1.0
+	</footer>
+</div>
+
+<!-- <div ng-include="'src/scripts/templates/blocks/footer.html'" scope="" onload=""></div> -->
