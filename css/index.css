@@ -45,6 +45,15 @@ footer{
 	display: flex;	
 	flex-direction: column;
 }
+/*************弹窗遮罩***************/
+.mask{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+	position: fixed;
+	top:0;
+	left:0;
+}
 /*************左侧菜单****************/
 .content{
 	-webkit-flex: 1;
@@ -60,21 +69,24 @@ footer{
 	background: #eee;
 	text-align: center;
 }
-.aside dt{
+.aside .blod{
 	font-size:18px;
 	line-height: 2em;
+	color: #333;
+	cursor: default;
 }
-.aside dt span{
+.aside .blod span{
 	font-size: 15px;
 	padding-right: 10px;
+	display: inline-block;
 }
-.aside dd a{
-	line-height: 2em;
-	font-size: 15px;
+.aside .blod a{
+	color: #333;
+	display: inline-block;
+	padding-left: 0;
+	cursor: default;
 }
-.aside dd:hover{
-	background: #fff;
-}
+
 .aside .active{
 	background: #337ab7;
 	
@@ -82,10 +94,7 @@ footer{
 .aside .active a{
 	color: #fff;
 }
-.aside dd:hover a{
-	color: #337ab7;
-	text-decoration: none;
-}
+
 /************右侧视图窗口***************/
 .main{
 	-webkit-flex: 1;
@@ -93,5 +102,42 @@ footer{
 	-ms-flex: 1;
 	-o-flex: 1;
 	flex: 1;
-	background: pink;
+	/*background: pink;*/
+	background: #f6f3ed;
+}
+/*********窗口定位**********/
+.location{
+	padding:10px 10px;
+}
+.location .glyphicon-map-marker{
+	font-size: 16px;
+}
+.location a{
+	color: #333;
+}
+/**********采购记录tab************/
+
+.nav-pills .tabBtn{
+	border-radius: 0;
+}
+.procurementTab{
+	margin-top:10px;
+}
+.procurementTab tr ,.procurementTab td ,.procurementTab th{
+	text-align: center;
+}
+.procurementTab .inputSearch input{
+	width: 60px;
+}
+.procurementTab .operation{
+	vertical-align: middle;
+}
+/*********导出按钮******/
+.exportBtn{
+	border-radius: 0;
+}
+/********多选框*****/
+input[type="checkBox"]{
+	width: 16px;
+	height:16px;
 }

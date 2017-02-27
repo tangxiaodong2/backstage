@@ -13,6 +13,52 @@ config(['$stateProvider','$urlMatcherFactoryProvider','$urlRouterProvider',funct
 		templateUrl:'./src/scripts/templates/login.html',
 		controller:'loginController',
 		controllerAs:'loginCtrl'
+	}).state('home.procurement',{
+		url:"/procurement",
+		templateUrl:"./src/scripts/templates/procurement.html",
+		controller:'procurementController',
+		controllerAs:'procurementCtrl'
+	}).state('home.inventory',{
+		url:"/inventory",
+		templateUrl:"./src/scripts/templates/inventory.html",
+		controller:'inventoryController',
+		controllerAs:'inventoryCtrl'
+	}).state('home.sale',{
+		url:"/sale",
+		templateUrl:"./src/scripts/templates/sale.html",
+		controller:'saleController',
+		controllerAs:'saleCtrl'
+	}).state('home.price',{
+		url:"/price",
+		templateUrl:"./src/scripts/templates/price.html",
+		controller:'priceController',
+		controllerAs:'priceCtrl'
+	}).state('home.memberManagement',{
+		url:"/memberManagement",
+		templateUrl:"./src/scripts/templates/memberManagement.html",
+		controller:'memberManagementController',
+		controllerAs:'memberManagementCtrl'
+	}).state('home.authorityManagement',{
+		url:"/authorityManagement",
+		templateUrl:"./src/scripts/templates/authorityManagement.html",
+		controller:'authorityManagementController',
+		controllerAs:'authorityManagementCtrl'
+	}).state('home.varietySet',{
+		url:"/varietySet",
+		templateUrl:"./src/scripts/templates/varietySet.html",
+		controller:'varietySetController',
+		controllerAs:'varietySetCtrl'
+	}).state('home.parameterSet',{
+		url:"/parameterSet",
+		templateUrl:"./src/scripts/templates/parameterSet.html",
+		controller:'parameterSetController',
+		controllerAs:'parameterSetCtrl'
+	}).state('home.graphic',{
+		url:"/graphic",
+		templateUrl:"./src/scripts/templates/graphic.html",
+		controller:'graphicController',
+		controllerAs:'graphicCtrl'
 	})
+
 }])
 

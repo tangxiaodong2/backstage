@@ -1,0 +1,148 @@
+<!-- there are procurement  -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4 location">
+			<span class="glyphicon glyphicon-map-marker"></span>
+			<span><a href="" ui-sref = "home.graphic">首页</a></span> &gt;
+			<span>数据监测</span> &gt;
+			<span>采购记录</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<!-- 采购记录 回收站 tab切换 -->
+			<ul class="nav nav-pills nav-justified">
+			  <li ng-class="{active:currentTab==$index}" ng-click="tab($index)" ng-repeat="item in data.tabs">
+			 	 <a href="" class="tabBtn">{{item.text}}</a>
+			  </li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered procurementTab" ng-show="isShow">
+				 <thead>
+			        <tr >
+			          <th>商品名称</th>
+			          <th>规格</th>
+			          <th>产地</th>
+			          <th>采购价上限(元)</th>
+			          <th>实际采购价(元)</th>
+			          <th>超出金额(元)</th>
+			          <th>超出百分比</th>
+			          <th>严重程度</th>
+			          <th>采购时间</th>
+			          <th>购货单位</th>
+			          <th>备注</th>
+			          <th>操作</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr class="inputSearch">
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td>
+			         	 <!-- <input type="text"> -->
+			         	 <select>
+			         	 	<option ng-repeat="key in rootData.level">{{key.dsc}}</option>
+			         	 </select>
+			          </td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td class="operation">
+			          	<a href="">重置</a>
+			          	<a href="">搜索</a>
+			          </td>
+			        </tr>
+			        <tr>
+			          <th scope="row">2</th>
+			          <td>Jacob</td>
+			          <td>Thornton</td>
+			          <td>@fat</td>
+			          <td>@twitter</td>
+			          <td>@twitter</td>
+			          <td>@twitter</td>
+			          <td>@twitter</td>
+			          <td>@twitter</td>
+			          <td>@twitter</td>
+			          <td>@twitter</td>
+			          <td>
+			          	<a href="" ng-click="handle()">处理</a>
+			          </td>
+			        </tr>
+			        <tr>
+			          <th scope="row">3</th>
+			          <td>Larry</td>
+			          <td>the Bird</td>
+			          <td>@twitter</td>
+			        </tr>
+			      </tbody>
+			</table>	
+    		<table class="table table-bordered procurementTab" ng-show="!isShow">
+				 <thead>
+			        <tr >
+			          <th>商品名称</th>
+			          <th>规格</th>
+			          <th>产地</th>
+			          <th>采购价上限(元)</th>
+			          <th>实际采购价(元)</th>
+			          <th>超出金额(元)</th>
+			          <th>超出百分比</th>
+			          <th>严重程度</th>
+			          <th>采购时间</th>
+			          <th>购货单位</th>
+			          <th>删除原因</th>
+			          <th>操作</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr class="inputSearch">
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td>
+			         	 <!-- <input type="text"> -->
+			         	 <select>
+			         	 	<option ng-repeat="key in rootData.level">{{key.dsc}}</option>
+			         	 </select>
+			          </td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td><input type="text"></td>
+			          <td class="operation">
+			          	<a href="">重置</a>
+			          	<a href="">搜索</a>
+			          </td>
+			        </tr>
+			        <tr>
+			          <th scope="row">2</th>
+			          <td>Jacob</td>
+			          <td>Thornton</td>
+			          <td>@fat</td>
+			        </tr>
+			        <tr>
+			          <th scope="row">3</th>
+			          <td>Larry</td>
+			          <td>the Bird</td>
+			          <td>@twitter</td>
+			        </tr>
+			      </tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<button type="button" class="btn btn-info exportBtn">导出到Excel</button> <span> 注：根据当前筛选条件导出数据。</span>
+		</div>
+	</div>
+</div>
