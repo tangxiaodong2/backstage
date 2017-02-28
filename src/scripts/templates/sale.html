@@ -74,6 +74,19 @@
 			          <td>Jacob</td>
 			          <td>Thornton</td>
 			          <td>@fat</td>
+			          <td>Jacob</td>
+			          <td>Thornton</td>
+			          <td>@fat</td>
+			          <td>Jacob</td>
+			          <td>Thornton</td>
+			          <td>@fat</td>
+			          <td>Jacob</td>
+			          <td>Thornton</td>
+			          <td>@fat</td>
+			          <td class="customers" ng-click="customersDetail()">@fat</td>
+			          <td>
+			          	<a href="" ng-click="handle()">处理</a>
+			          </td>
 			        </tr>
 			        <tr>
 			          <th scope="row">3</th>
@@ -151,6 +164,93 @@
 	<div class="row">
 		<div class="col-md-6">
 			<button type="button" class="btn btn-info exportBtn">导出到Excel</button> <span> 注：根据当前筛选条件导出数据。</span>
+		</div>
+	</div>
+</div>
+<div class="container addComment" ng-show="addCommentShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			添加备注
+		</div>
+		<div class="col-md-1 closeBtn" ng-click="cancelComment()">×</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="dsc dsc-inventory">
+				价格严重程度1：
+				<select>
+					<option>非常严重</option>
+					<option>严重</option>
+					<option>一般</option>
+					<option>良好</option>
+					<option>正常</option>
+				</select>
+				<span> 售价VS成本</span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="dsc dsc-inventory">
+				价格严重程度2：
+				<select>
+					<option>非常严重</option>
+					<option>严重</option>
+					<option>一般</option>
+					<option>良好</option>
+					<option>正常</option>
+				</select>
+				<span> 售价VS行情</span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<span class="dsc">备注信息：</span>
+			<textarea cols="50" rows="8" placeholder="您可以添加200字以内的备注文字"></textarea>
+		</div>
+	</div>
+	<div class="row addCommentBtns">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default btn-lg" ng-click="cancelComment()"> 取消 </button>
+			<button class="btn btn-success btn-lg" ng-click="submitComment()"> 提交 </button>
+		</div>
+	</div>
+</div>
+<div class="container customersDetail addComment" ng-show = "customersDetailShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			买家信息
+		</div>
+		<div class="col-md-1 closeBtn" ng-click="closeDetail()">×</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="dsc">
+				联系人:
+				<span> 唐小东</span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="dsc">
+				联系电话:
+				<span> 18200293786</span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="dsc">
+				买家单位:
+				<span> 中药材天地网络科技有限公司</span>
+			</p>
+		</div>
+	</div>
+	<div class="row addCommentBtns">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-success btn-lg" ng-click="closeDetail()"> 关闭窗口 </button>
 		</div>
 	</div>
 </div>

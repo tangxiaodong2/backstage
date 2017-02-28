@@ -146,3 +146,39 @@
 		</div>
 	</div>
 </div>
+<div class="container addComment" ng-show="addCommentShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			添加备注
+		</div>
+		<div class="col-md-1 closeBtn" ng-click="cancelComment()">×</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="dsc">
+				价格严重程度：
+				<select>
+					<option>非常严重</option>
+					<option>严重</option>
+					<option>一般</option>
+					<option>良好</option>
+					<option>正常</option>
+				</select>
+				<span> 请谨慎操作程度的变更</span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<span class="dsc">备注信息：</span>
+			<textarea cols="50" rows="8" placeholder="您可以添加200字以内的备注文字"></textarea>
+			<!-- <textarea class="form-control" rows="3" style = "display: inline-block;"></textarea> -->
+		</div>
+	</div>
+	<div class="row addCommentBtns">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default btn-lg" ng-click="cancelComment()"> 取消 </button>
+			<button class="btn btn-success btn-lg" ng-click="submitComment()"> 提交 </button>
+		</div>
+	</div>
+</div>

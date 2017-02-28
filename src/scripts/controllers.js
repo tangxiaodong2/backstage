@@ -55,7 +55,20 @@ app.controller('homeController', ['$scope','$rootScope',function($scope,$rootSco
 		$rootScope.nowId = i;
 	};
 	// $scope.currentId = $rootScope.nowId = 6 ;
-
+	$scope.exit = function (){
+		$rootScope.maskShow = true;
+		$scope.exitShow = true;
+	};
+	var hide = function(){
+		$rootScope.maskShow = false;
+		$scope.exitShow = false;
+	};
+	$scope.cancel = function (){
+		hide();
+	};
+	$scope.doExit = function (){
+		hide();
+	};
 }])
 // 采购预警
 app.controller('procurementController', ['$scope','$rootScope', function($scope,$rootScope){
@@ -75,14 +88,38 @@ app.controller('procurementController', ['$scope','$rootScope', function($scope,
 	};
 	$scope.handle = function (){
 		$rootScope.maskShow = true;
-	}
+		$scope.addCommentShow =true;
+	};
+	var hideComment = function (){
+		$rootScope.maskShow = false;
+		$scope.addCommentShow =false;
+	};
+	$scope.cancelComment = function (){
+		hideComment();
+	};
+	$scope.submitComment = function (){
+		hideComment();
+	};
 }])
 //存货预警
-app.controller('inventoryController', ['$scope', function($scope){
-	
+app.controller('inventoryController', ['$scope','$rootScope', function($scope,$rootScope){
+	$scope.handle = function (){
+		$rootScope.maskShow = true;
+		$scope.addCommentShow =true;
+	};
+	var hideComment = function (){
+		$rootScope.maskShow = false;
+		$scope.addCommentShow =false;
+	};
+	$scope.cancelComment = function (){
+		hideComment();
+	};
+	$scope.submitComment = function (){
+		hideComment();
+	};
 }])
 //销售预警
-app.controller('saleController', ['$scope', function($scope){
+app.controller('saleController', ['$scope','$rootScope', function($scope,$rootScope){
 	$scope.currentTab = 0;
 	$scope.isShow = true;
 	$scope.data = {
@@ -97,25 +134,117 @@ app.controller('saleController', ['$scope', function($scope){
 			$scope.isShow = !$scope.isShow;
 			$scope.currentTab = i;
 		}	
+	};
+	$scope.handle = function (){
+		$rootScope.maskShow = true;
+		$scope.addCommentShow =true;
+	};
+	var hideComment = function (){
+		$rootScope.maskShow = false;
+		$scope.addCommentShow =false;
+		$scope.customersDetailShow =false;
+	};
+	$scope.cancelComment = function (){
+		hideComment();
+	};
+	$scope.submitComment = function (){
+		hideComment();
+	};
+	$scope.customersDetail = function(){
+		$rootScope.maskShow = true;
+		$scope.customersDetailShow = true;
+	}
+	$scope.closeDetail= function(){
+		hideComment();
 	}
 }])
 //行情价格
-app.controller('priceController', ['$scope', function($scope){
-	
+app.controller('priceController', ['$scope','$rootScope', function($scope,$rootScope){
+	$scope.handle = function (){
+		$rootScope.maskShow = true;
+		$scope.addCommentShow =true;
+	};
+	var hideComment = function (){
+		$rootScope.maskShow = false;
+		$scope.addCommentShow =false;
+	};
+	$scope.cancelComment = function (){
+		hideComment();
+	};
+	$scope.submitComment = function (){
+		hideComment();
+	};
 }])
 //账号管理 
-app.controller('memberManagementController', ['$scope', function($scope){
+app.controller('memberManagementController', ['$scope','$rootScope', function($scope,$rootScope){
 	$scope.data = {
 		"list":[
 			{"state":"全部"},
 			{"state":"正常"},
 			{"state":"已禁用"}
 		]
+	};
+	$scope.createMember = function (){
+		$rootScope.maskShow = true;
+		$scope.createMemberShow = true;
+	};
+	var hideCreateMember = function (){
+		$rootScope.maskShow = false;
+		$scope.createMemberShow =false;
+	};
+	$scope.cancelCreateMember = function (){
+		hideCreateMember();
+	};
+	$scope.submitCreateMember = function (){
+		hideCreateMember();
+	};
+	// 添加品规
+	$scope.data.goods=[
+		{"good":"三七","size":"统货","area":"四川省成都市青羊工业园区电子商务大厦"}
+	];
+	// 初始化数据
+	$scope.good = "品种";
+	$scope.size = "规格";
+	$scope.area = "产地";
+	// 添加品规数据
+	$scope.addGoods = function (){
+		$scope.data.goods.push({"good":$scope.good,"size":$scope.size,"area":$scope.area})
+	}
+	// 删除
+	$scope.delGoods = function (i){
+		$scope.data.goods.splice(i,1)
 	}
 }])
 //权限管理  
-app.controller('authorityManagementController', ['$scope', function($scope){
-	
+app.controller('authorityManagementController', ['$scope','$rootScope', function($scope,$rootScope){
+	$scope.createTeam = function (){
+		$rootScope.maskShow = true;
+		$scope.createTeamShow = true;
+	};
+	var hideCreateTeam = function (){
+		$rootScope.maskShow = false;
+		$scope.createTeamShow =false;
+	};
+	$scope.cancelCreateTeam = function (){
+		hideCreateTeam();
+	};
+	$scope.doCreateTeam = function (){
+		hideCreateTeam();
+	};
+	$scope.redact = function (){
+		$rootScope.maskShow = true;
+		$scope.teamMember = true;
+	};
+	var hideTeamMember = function (){
+		$rootScope.maskShow = false;
+		$scope.teamMember =false;
+	};
+	$scope.cancelTeamMember = function (){
+		hideTeamMember();
+	};
+	$scope.submitTeamMember = function (){
+		hideTeamMember();
+	}
 }])
 //品规管理   
 app.controller('varietySetController', ['$scope', function($scope){

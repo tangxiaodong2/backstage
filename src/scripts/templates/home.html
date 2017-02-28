@@ -1,8 +1,8 @@
 <!-- <div ng-include="'src/scripts/templates/blocks/header.html'" scope="" onload=""></div> -->
 <div class="homeWrap">
 	<header>
-		<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 中药材监测预警系统后台
-		<span class="userInfo"><i class="glyphicon glyphicon-user"></i> {{username}} | <i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+		<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> <a href="" ui-sref="home.graphic" class="toHome">中药材监测预警系统后台</a>
+		<span class="userInfo"><i class="glyphicon glyphicon-user"></i> {{username}} | <i class="glyphicon glyphicon-circle-arrow-right" ng-click="exit()"></i></span>
 	</header>
 	<div class="content">
 		<div class="aside">
@@ -13,6 +13,16 @@
 		<div class="main">
 			<div ui-view></div>	
 		</div>
+	</div>
+	<div class="exitTips container" ng-show="exitShow">
+		<p class="text-center">您确认要退出登录吗？</p>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<button class="btn btn-default" ng-click="cancel()">取消</button>
+				<button class="btn btn-default" ng-click="doExit()">确定</button>
+			</div>
+		</div>
+		
 	</div>
 	<footer class="text-right">
 		version1.0

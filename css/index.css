@@ -45,6 +45,14 @@ footer{
 	display: flex;	
 	flex-direction: column;
 }
+.homeWrap .toHome{
+	color:#fff;
+	text-decoration: none;
+}
+.homeWrap .toHome:hover{
+	text-decoration: none;
+}
+
 /*************弹窗遮罩***************/
 .mask{
 	width: 100%;
@@ -53,6 +61,23 @@ footer{
 	position: fixed;
 	top:0;
 	left:0;
+}
+/***************退出登录弹窗***************/
+.exitTips{
+	width:400px;
+	height:250px;
+	background: #fff;
+	position: fixed;
+	top:50%;
+	left:50%;
+	margin-top: -200px;
+	margin-left: -200px;
+	z-index: 10;
+}
+.exitTips p{
+	font-size: 16px;
+	margin-top: 20px;
+	margin-bottom: 40px;
 }
 /*************左侧菜单****************/
 .content{
@@ -140,4 +165,139 @@ footer{
 input[type="checkBox"]{
 	width: 16px;
 	height:16px;
+}
+/*************添加备注****************/
+.addComment{
+	width:600px;
+	height:400px;
+	background: #fff;
+	position: fixed;
+	top:50%;
+	left:50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	z-index: 10;
+	padding-top: 10px;
+
+}
+.addComment .title{
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+.addComment .closeBtn{
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+.addComment .closeBtn:hover{
+	cursor: pointer;
+}
+.addComment .dsc{
+	padding-top: 20px;
+	font-size: 16px;
+	vertical-align: top;
+	padding-bottom: 20px;
+}
+.addComment .dsc span{
+	font-size: 14px;
+}
+.addCommentBtns{
+	padding-top: 20px;
+}
+.addComment .dsc-inventory{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+/**********销售记录************/
+.customers{
+	cursor: pointer;
+}
+.customersDetail .title{
+	margin-bottom: 40px;
+}
+.customersDetail .dsc{
+	padding-top: 10px;
+	font-size: 16px;
+	vertical-align: top;
+	padding-bottom: 10px;
+}
+.customersDetail .dsc span{
+	font-size: 18px;
+}
+.createTeam .dsc {
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 5px;
+}
+/************成员管理***********/
+.addComment.createMember{
+	width:700px;
+	height:auto;
+	background: #fff;
+	position: fixed;
+	top:50%;
+	left:50%;
+	margin-top: -300px;
+	margin-left: -350px;
+	z-index: 10;
+	padding-top: 10px;
+}
+.createMember .selectBox{
+	padding-right: 0;
+	padding-left: 10px;
+}
+.createMember .createMemberBtns{
+	margin-bottom: 20px;
+}
+.createMember .createMemberBtns button{
+	margin-right: 20px;
+}
+.delGoodsBtn{
+	cursor: pointer;
+}
+/************角色管理***************/
+.addComment.createTeam{
+	width:900px;
+	height:450px;
+	background: #fff;
+	position: fixed;
+	top:50%;
+	left:50%;
+	margin-top: -300px;
+	margin-left: -450px;
+	z-index: 10;
+	padding-top: 10px;
+}
+.addComment.createTeam .authorityTable{
+	padding-left: 7px;
+}
+.addComment.createTeam .authorityTable td{
+	vertical-align: middle;
+}
+.addComment.redactTeam{
+	width:1000px;
+	height:auto;
+	background: #fff;
+	position: fixed;
+	top:50%;
+	left:50%;
+	margin-top: -300px;
+	margin-left: -500px;
+	z-index: 10;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.addComment.redactTeam .searchInput{
+	width: 85%;
+}
+.addComment.redactTeam table td{
+	text-align: center;
+}
+.addComment.redactTeam .teamNick{
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.addComment.redactTeam .teamMember{
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
 }

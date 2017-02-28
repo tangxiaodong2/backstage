@@ -10,7 +10,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-1 col-md-offset-11 text-center">
-			<button class="btn btn-success exportBtn">创建账号</button>
+			<button class="btn btn-success exportBtn" ng-click="createMember()">创建账号</button>
 		</div>
 	</div>
 	<div class="row">
@@ -47,10 +47,19 @@
 				          </td>
 				        </tr>
 				        <tr>
-				          <th scope="row">2</th>
+				          <th scope="row">正常</th>
 				          <td>Jacob</td>
 				          <td>Thornton</td>
 				          <td>@fat</td>
+				          <td>Jacob</td>
+				          <td>Thornton</td>
+				          <td>@fat</td>
+				          <td class="operation">
+				          	<a href="" ng-click="createMember()">编辑</a>
+				          	<a href="">删除</a>
+				          	<a href="">停用</a>
+				          	<a href="">重置密码</a>
+				          </td>
 				        </tr>
 				        <tr>
 				          <th scope="row">3</th>
@@ -65,6 +74,116 @@
 	<div class="row">
 		<div class="col-md-6">
 			<button type="button" class="btn btn-info exportBtn">导出到Excel</button> <span> 注：根据当前筛选条件导出数据。</span>
+		</div>
+	</div>
+</div>
+<div class="container createMember addComment " ng-show = "createMemberShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			添加账号
+		</div>
+		<div class="col-md-1 closeBtn" ng-click="cancelCreateMember()">×</div>
+	</div>
+	<div class="row">
+		<form class="form-horizontal">
+			<div class="form-group  has-feedback has-success">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">用户名:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  </div>
+			</div>
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">姓名:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  </div>
+			</div>
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">手机号:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  </div>
+			</div>
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">部门:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  </div>
+			</div>
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">岗位:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  </div>
+			</div>
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="">关联品规:</label>
+			  <div class="col-md-2 selectBox">
+			  	 <select class="form-control" ng-model="good">
+				  <option>品种</option>
+				  <option>2</option>
+				  <option>2</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			  </div>
+			   <div class="col-md-2 selectBox">
+			  	 <select class="form-control" ng-model="size">
+				  <option>规格</option>
+				  <option>2</option>
+				  <option>2</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			  </div>
+			  <div class="col-md-2 selectBox">
+			  	 <select class="form-control" ng-model="area">
+				  <option>产地</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			  </div>
+			  <div class="col-md-1 text-center">
+			 	<button type="button" class="btn btn-default" ng-click="addGoods()">
+				  <span class="glyphicon glyphicon-plus"></span>
+				</button>
+			  </div>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+		    <table class="table">
+		       <!--  <tr>
+		          <td>三七</td>
+		          <td>统货</td>
+		          <td>四川省成都市青羊工业园区电子商务大厦</td>
+		          <td>
+					  <span class="glyphicon glyphicon-remove"></span>
+		          </td>
+		        </tr> -->
+		      	<tr ng-repeat="item in data.goods">
+		          <td>{{item.good}}</td>
+		          <td>{{item.size}}</td>
+		          <td>{{item.area}}</td>
+		          <td ng-click="delGoods($index)" class="delGoodsBtn">
+					  <span class="glyphicon glyphicon-remove"></span>
+		          </td>
+		        </tr>
+		    </table>
+		</div>
+	</div>
+	<div class="row createMemberBtns">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default" ng-click="cancelCreateMember()"> 取消 </button>
+			<button class="btn btn-success" ng-click="submitCreateMember()"> 确定 </button>
 		</div>
 	</div>
 </div>

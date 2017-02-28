@@ -10,7 +10,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-1 col-md-offset-11 text-center">
-			<button class="btn btn-success exportBtn">创建角色组</button>
+			<button class="btn btn-success exportBtn" ng-click="createTeam()">创建角色组</button>
 		</div>
 	</div>
 	<div class="row">
@@ -26,13 +26,13 @@
 			      </thead>
 			      <tbody>
 			        <tr>
-			          <th scope="row">2</th>
+			          <th scope="row">2</th> 
 			          <td>Jacob</td>
 			          <td>Thornton</td>
 			          <td class="operation">
-			          	<a href="">编辑</a>
+			          	<a href="" ng-click="redact()">编辑</a>
 			          	<a href="">删除</a>
-			          	<a href="">组员管理</a>
+			          	<a href="" ng-click="redact()">组员管理</a>
 			          </td>
 			        </tr>
 			        <tr>
@@ -47,6 +47,191 @@
 			        </tr>
 			      </tbody>
 			</table>	
+		</div>
+	</div>
+</div>
+<div class="container addComment createTeam" ng-show="createTeamShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			角色组权限设置
+		</div>
+		<div class="col-md-1 closeBtn text-right" ng-click="cancelCreateTeam()">×</div>
+	</div>
+	<div class="row">
+		<form class="form-horizontal">
+			<div class="form-group  has-feedback ">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">角色组名称:</label>
+			  <div class="col-md-6 has-success">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  </div>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-3 text-right">
+			<span class="dsc">角色组权限: </span>
+		</div>
+		<div class="col-md-8 authorityTable">			
+		    <table class="table table-bordered">
+		      <thead>
+		        <tr class="active">
+		          <th class="text-center">权限板块</th>
+		          <th  class="text-center">页面操作</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td class="text-center">H5操作权限</td>
+		          <td>
+		           <div class="checkbox">
+			          	<label>
+					       <input type="checkbox"> H5-我的采购
+					    </label>
+					    <label>
+					       <input type="checkbox"> H5-存货维护
+					    </label>
+					    <label>
+					       <input type="checkbox"> H5-行情价格
+					    </label>
+					    <label>
+					       <input type="checkbox"> H5-我的销售
+					    </label>
+					 </div>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td class="text-center">数据监测</td>
+		          <td>
+			          <div class="checkbox">
+				          	<label>
+						       <input type="checkbox"> 采购预警
+						    </label>
+						    <label>
+						       <input type="checkbox"> 存货预警
+						    </label>
+						    <label>
+						       <input type="checkbox"> 销售预警
+						    </label>
+						    <label>
+						       <input type="checkbox"> 行情价格
+						    </label>
+					    </div>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td class="text-center">权限管理</td>
+		          <td>
+		          	<div class="checkbox">
+		          		<label>
+					       <input type="checkbox"> 账号管理
+					    </label>
+					    <label>
+					       <input type="checkbox"> 权限配置
+					    </label>
+		          	</div>		          	
+		          </td>
+		        </tr>
+		        <tr>
+		          <td class="text-center">基础设置</td>
+		          <td>
+		          	<div class="checkbox">
+			          	<label>
+					       <input type="checkbox"> 品规管理
+					    </label>
+					    <label>
+					       <input type="checkbox"> 预警参数
+					    </label>
+					 </div>
+		          </td>
+		        </tr>
+		      </tbody>
+		    </table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default " ng-click="cancelCreateTeam()"> 取消 </button>
+			<button class="btn btn-success " ng-click="doCreateTeam()"> 确定 </button>
+		</div>
+	</div>
+</div>
+<div class="container addComment redactTeam" ng-show="teamMember">
+	<div class="row">
+		<div class="col-md-11 title">
+			角色组成员管理
+		</div>
+		<div class="col-md-1 closeBtn text-right" ng-click="cancelTeamMember()">×</div>
+	</div>
+	<div class="row teamNick">
+		<div class="col-md-9 text-left">
+			<span >角色组权限: </span>
+			<span class="teamName">人力专员</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<p class="teamMember">非组员</p>			
+		    <table class="table table-bordered">
+		      <thead>
+		        <tr>
+		          <th>
+		          	<input type="text" name="" placeholder=" 请输入姓名或手机号" class="searchInput">
+		          	<button class="btn btn-primary btn-sm">搜索</button>
+		          </th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>
+		          	<span class="col-md-2">唐小东</span>
+		          	<span class="col-md-4">18200293786</span>
+		          	<span class="col-md-6">安国子公司</span>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td>Jacob</td>
+		        </tr>
+		        <tr>
+		          <td>the Bird</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		</div>
+		<div class="col-md-6">
+			<p class="teamMember">组员</p>
+			 <table class="table table-bordered">
+		      <thead>
+		        <tr>
+		          <th>
+		          	<input type="text" name="" placeholder=" 请输入姓名或手机号" class="searchInput">
+		          	<button class="btn btn-primary btn-sm">搜索</button>
+		          </th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>
+		          	<span class="col-md-2">唐小东</span>
+		          	<span class="col-md-4">18200293786</span>
+		          	<span class="col-md-5">安国子公司</span>
+		          	<span class="col-md-1 glyphicon glyphicon-remove" ></span>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td>Jacob</td>
+		        </tr>
+		        <tr>
+		          <td>the Bird</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		</div>
+	</div>
+	<div class="row ">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default" ng-click="cancelTeamMember()"> 取消 </button>
+			<button class="btn btn-success" ng-click="submitTeamMember()"> 提交 </button>
 		</div>
 	</div>
 </div>
