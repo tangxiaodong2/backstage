@@ -9,8 +9,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-1 col-md-offset-11 text-center">
-			<button class="btn btn-success exportBtn">新增品规</button>
+		<div class="col-md-12 text-right">
+			<button class="btn btn-success exportBtn" ng-click="addVariety()">新增品规</button>
 		</div>
 	</div>
 	<div class="row">
@@ -35,26 +35,10 @@
 			          <td><input type="text"></td>
 			          <td><input type="text"></td>
 			          <td><input type="text"></td>
-			          <td>
-			          	<select>
-							<option></option>
-						</select>
-			          </td>
-			          <td>
-			          	<select>
-							<option></option>
-						</select>
-			          </td>
-			          <td>
-			          	<select>
-							<option></option>
-						</select>
-			          </td>
-			          <td>
-						<select>
-							<option></option>
-						</select>
-			          </td>
+			          <td></td>
+			          <td></td>
+			          <td></td>
+			          <td></td>
 			          <td class="operation">
 			          	<a href="">重置</a>
 			          	<a href="">搜索</a>
@@ -64,14 +48,45 @@
 			          <th scope="row">2</th>
 			          <td>Jacob</td>
 			          <td>Thornton</td>
-			          <td>@fat</td>
-			          <td>@fat</td>
-			          <td>@fat</td>
-			          <td>@fat</td>
-			          <td>@fat</td>
+			          <td class="setIcon">
+			          	14.00
+						<span class="glyphicon glyphicon-edit" ng-click="setProcurementLimit()"></span>
+			          </td>
+			          <td class="setIcon">
+			          	<p>非常严重</p>
+			          	<p>严重</p>
+			          	<p>一般</p>
+			          	<p>良好</p>
+			          	<p>正常</p>
+			          	<span class="glyphicon glyphicon-edit" ng-click="setProcurementLimit()"></span>
+			          </td>
+			          <td class="setIcon">
+			          	<p>非常严重</p>
+			          	<p>严重</p>
+			          	<p>一般</p>
+			          	<p>良好</p>
+			          	<p>正常</p>
+			          	<span class="glyphicon glyphicon-edit" ng-click="setInventoryLimit()"></span>
+			          </td>
+			          <td class="setIcon">
+			          	<p>非常严重</p>
+			          	<p>严重</p>
+			          	<p>一般</p>
+			          	<p>良好</p>
+			          	<p>正常</p>
+			          	<span class="glyphicon glyphicon-edit" ng-click="setSaleLimit1()"></span>
+			          </td>
+			          <td class="setIcon">
+			          	<p>非常严重</p>
+			          	<p>严重</p>
+			          	<p>一般</p>
+			          	<p>良好</p>
+			          	<p>正常</p>
+			          	<span class="glyphicon glyphicon-edit" ng-click="setSaleLimit2()"></span>
+			          </td>
 			          <td class="operation">
-			          	<a href="">编辑</a>
-			          	<a href="">删除</a>
+			          	<a href="" ng-click="addVariety()">编辑品规</a>
+			          	<a href="" ng-click="toDel()">删除</a>
 			          </td>
 			        </tr>
 			        <tr>
@@ -82,6 +97,135 @@
 			        </tr>
 			      </tbody>
 			</table>	
+		</div>
+	</div>
+</div>
+
+<div class="container createMember addComment " ng-show="addVarietyShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			品规管理
+		</div>
+		<div class="col-md-1 closeBtn" ng-click="cancelAddVariety()">×</div>
+	</div>
+	<div class="row">
+		<form class="form-horizontal">
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">品名:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+			  </div>
+			</div>
+			<div class="form-group  has-feedback">
+			  <label class="control-label col-md-3 text-center" for="inputSuccess3">规格:</label>
+			  <div class="col-md-6">
+			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+			  </div>
+			</div>
+			<div class="form-group  has-feedback varietyGoods">
+			  <label class="control-label col-md-3 text-center" for="">关联品规:</label>
+			  <div class="col-md-2 selectBox">
+			  	 <select class="form-control" ng-model="good">
+				  <option>品种</option>
+				  <option>2</option>
+				  <option>2</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			  </div>
+			   <div class="col-md-2 selectBox">
+			  	 <select class="form-control" ng-model="size">
+				  <option>规格</option>
+				  <option>2</option>
+				  <option>2</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			  </div>
+			  <div class="col-md-2 selectBox">
+			  	 <select class="form-control" ng-model="area">
+				  <option>产地</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			  </div>
+			</div>
+		</form>
+	</div>
+	<div class="row createMemberBtns">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default" ng-click="cancelAddVariety()"> 取消 </button>
+			<button class="btn btn-success" ng-click="submitAddVariety()"> 提交 </button>
+		</div>
+	</div>
+</div>
+<!-- 设置预警上线 -->
+<div class="container createMember addComment setParameter" ng-show="setShow">
+	<div class="row">
+		<div class="col-md-11 title">
+			{{priceData.title}}
+		</div>
+		<div class="col-md-1 closeBtn" ng-click="cancelSet()">×</div>
+	</div>
+	<div class="row standard good">
+		<div class="col-md-12">
+			<span>三七 </span> / <span>120头</span> / <span>云南 昆明 文山</span>
+		</div>
+	</div>
+	<div class="row" ng-show = "priceData.priceLimitShow">
+		<div class="col-md-12">
+			<p>
+				采购上限：
+				<input type="text" name=""> 元 /
+				<select>
+					<option>公斤</option>
+					<option>公斤</option>
+					<option>公斤</option>
+					<option>公斤</option>
+					<option>公斤</option>
+				</select>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>标准设置: α = (<span> {{priceData.priceReal}} </span> - <span> {{priceData.price2}} </span>) / <span> {{priceData.price2}} </span></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">		
+		    <table class="table table-bordered">
+		      <thead>
+		        <tr>
+		          <th class="text-center">程度</th>
+		          <th class="text-center">变量值</th>
+		          <th class="text-center">比较</th>
+		          <th class="text-center">参考值</th>
+		          <th class="text-center">颜色</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr ng-repeat="item in data.standardData">
+		          <td class="text-center">{{item.level}}</td>
+		          <td class="text-center">{{item.symbol}}</td>
+		          <td class="text-center">
+		          	<select class="compareSymbol">
+		          		<option ng-repeat="key in data.compare">{{key.symbol}}</option>
+		          	</select>
+		          </td>
+		          <td class="text-center"><input type="text" name=""></td>
+		          <td class={{item.color}}><span></span></td>
+		        </tr>
+		      </tbody>
+		    </table> 
+		</div>
+	</div>
+	<div class="row createMemberBtns">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<button class="btn btn-default" ng-click="cancelSet()"> 取消 </button>
+			<button class="btn btn-success" ng-click="submitSet()"> 确定 </button>
 		</div>
 	</div>
 </div>

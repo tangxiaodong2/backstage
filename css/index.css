@@ -72,12 +72,12 @@ footer{
 	left:50%;
 	margin-top: -200px;
 	margin-left: -200px;
-	z-index: 10;
+	z-index: 999999;
 }
 .exitTips p{
-	font-size: 16px;
-	margin-top: 20px;
-	margin-bottom: 40px;
+	font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 /*************左侧菜单****************/
 .content{
@@ -300,4 +300,72 @@ input[type="checkBox"]{
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
+}
+/*************品规管理***************/
+.varietyText textarea{
+	width:50%;
+}
+.varietyText label{
+	margin-right: 15px;
+}
+.varietyGoods label{
+	margin-right: 5px;
+}
+/**************参数设置****************/
+.table>tbody>tr>td,.table>tbody>tr>th{
+	vertical-align: middle;
+}
+.setIcon {
+	position: relative;
+}
+.setIcon .glyphicon-edit{
+	position: absolute;
+	top:0;
+	right:0;
+	font-size: 24px;
+	cursor: pointer;
+	display: none;
+}
+.setIcon:hover .glyphicon-edit{
+	display: block;
+}
+.deepGreen{
+	background: #0d8841;
+}
+.lightGreen{
+	background: #08f66d;
+}
+.normal{
+	background: #c0fad9;
+}
+.yellow{
+	background: #f98d01;
+}
+.red{
+	background: #f90107;
+}
+.setParameter .good.standard{
+	font-size: 16px;
+	margin-top: 10px;
+}
+.setParameter .good.standard span{
+	font-weight: bold;
+}
+.setParameter .standard{
+	margin-bottom: 10px;
+}
+.setParameter .compareSymbol option,.setParameter .compareSymbol{
+	font-size: 20px;
+}
+/******************图表数据展示********************/
+.container-fluid .row .pieBox{
+	padding-top:50px;
+	position: relative;
+}
+.container-fluid .row .pieBox .toTotal{
+	position: absolute;
+	right: 70px;
+	top:50px;
+	font-weight: bold;
+	z-index: 9999;
 }

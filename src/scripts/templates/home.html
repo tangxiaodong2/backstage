@@ -14,16 +14,38 @@
 			<div ui-view></div>	
 		</div>
 	</div>
+	<!-- 退出系统窗口 -->
 	<div class="exitTips container" ng-show="exitShow">
 		<p class="text-center">您确认要退出登录吗？</p>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 text-center">
 				<button class="btn btn-default" ng-click="cancel()">取消</button>
-				<button class="btn btn-default" ng-click="doExit()">确定</button>
+				<button class="btn btn-success" ng-click="doExit()">确定</button>
 			</div>
 		</div>
-		
 	</div>
+	<!-- 删除信息窗口 -->
+	<div class="exitTips container" ng-show="delShow">
+		<p class="text-center">您确定要删除该条信息吗?</p>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<button class="btn btn-default" ng-click="cancel()">取消</button>
+				<button class="btn btn-success" ng-click="doDel()">确定</button>
+			</div>
+		</div>
+	</div>
+	<!-- 批量删除确认窗口 -->
+	<div class="exitTips container" ng-show="batchDelShow">
+		<p class="text-center">您确定要批量删除信息吗?</p>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<button class="btn btn-default" ng-click="cancel()">取消</button>
+				<button class="btn btn-success" ng-click="doDel()">确定</button>
+			</div>
+		</div>
+	</div>
+	<!-- 遮罩 -->
+	<div class="mask" ng-show ="maskShow"></div>
 	<footer class="text-right">
 		version1.0
 	</footer>
