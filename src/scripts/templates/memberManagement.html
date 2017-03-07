@@ -5,7 +5,7 @@
 			<span class="glyphicon glyphicon-map-marker"></span>
 			<span><a href="" ui-sref = "home.graphic">首页</a></span> &gt;
 			<span>权限管理</span> &gt;
-			<span>账户管理</span>
+			<span>账户管理{{MyTest}}</span>
 		</div>
 	</div>
 	<div class="row">
@@ -31,42 +31,49 @@
 				      <tbody>
 				        <tr class="inputSearch">
 				          <td>
-				          	<select>
-				          		<option ng-repeat="key in data.list">{{key.state}}</option>
+				          	<select ng-model="SearchInfo.status">
+				          		<option value="-1" >全部</option>
+								<option value="0" >正常</option>
+								<option value="2" >停用</option>
 				          	</select>
 				          </td>
-				          <td><input type="text"></td>
-				          <td><input type="text"></td>
-				          <td><input type="text"></td>
-				          <td><input type="text"></td>
-				          <td><input type="text"></td>
-				          <td><input type="text"></td>
+				          <td><input ng-model="SearchInfo.account" type="text"></td>
+				          <td><input ng-model="SearchInfo.name" type="text"></td>
+				          <td><input ng-model="SearchInfo.mobile" type="text"></td>
+				          <td><input ng-model="SearchInfo.department.name" type="text"></td>
+				          <td><input ng-model="SearchInfo.position.name" type="text"></td>
+				          <td><input ng-model="SearchInfo.codeSpecAreaName" type="text"></td>
 				          <td class="operation">
-				          	<a href="">重置</a>
-				          	<a href="">搜索</a>
+				          	<a href="" ng-click="btnClear()">重置</a>
+				          	<a href="" ng-click="btnSearch()" >搜索</a>
 				          </td>
 				        </tr>
-				        <tr>
-				          <th scope="row">正常</th>
-				          <td>Jacob</td>
-				          <td>Thornton</td>
-				          <td>@fat</td>
-				          <td>Jacob</td>
-				          <td>Thornton</td>
-				          <td>@fat</td>
+
+				        <tr ng-repeat="item in AccountView">
+				          <th scope="row">{{item.status_name}}</th>
+				          <td>{{item.account}}</td>
+				          <td>{{item.name}}</td>
+				          <td>{{item.mobile}}</td>
+				          <td>{{item.department_id_name}}</td>
+				          <td>{{item.position_id_name}}</td>
+				          <td>
+							<div ng-repeat="codeSpec in item.listEmployeeSpecVar">
+								{{codeSpec.specVariety.variety.varietyName}}_
+								{{codeSpec.specVariety.spec.specName}}_
+								{{codeSpec.specVariety.productionProvinceId}}_
+								{{codeSpec.specVariety.productionCityId}}_
+								{{codeSpec.specVariety.productionCountyId}}
+							</div>
+						  </td>
 				          <td class="operation">
-				          	<a href="" ng-click="createMember()">编辑</a>
+				          	<a href="" ng-click="editMember($index)">编辑</a>
 				          	<a href="" ng-click="toDel()">删除</a>
 				          	<a href="">停用</a>
 				          	<a href="">重置密码</a>
 				          </td>
 				        </tr>
-				        <tr>
-				          <th scope="row">3</th>
-				          <td>Larry</td>
-				          <td>the Bird</td>
-				          <td>@twitter</td>
-				        </tr>
+
+
 				      </tbody>
 				</table>	
 			</div>
@@ -77,6 +84,7 @@
 		</div>
 	</div>
 </div>
+
 <div class="container createMember addComment " ng-show = "createMemberShow">
 	<div class="row">
 		<div class="col-md-11 title">
@@ -84,106 +92,103 @@
 		</div>
 		<div class="col-md-1 closeBtn" ng-click="cancelCreateMember()">×</div>
 	</div>
+
 	<div class="row">
-		<form class="form-horizontal">
-			<div class="form-group  has-feedback has-success">
-			  <label class="control-label col-md-3 text-center" for="inputSuccess3">用户名:</label>
+
+		<form class="form-horizontal" name="userForm">
+
+			<div class="form-group  has-feedback ">
+			  <label class="control-label col-md-3 text-center" >用户名:</label>
 			  <div class="col-md-6">
-			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
-				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  	  <input type="text" class="form-control" ng-model="UserInfo.account" name="account" required  aria-describedby="inputSuccess3Status">
+				  <span style="color:red" ng-show="userForm.account.$dirty && userForm.account.$invalid"><span ng-show="userForm.account.$error.required">用户名是必须的。</span></span>
 			  </div>
 			</div>
 			<div class="form-group  has-feedback">
-			  <label class="control-label col-md-3 text-center" for="inputSuccess3">姓名:</label>
+			  <label class="control-label col-md-3 text-center" >姓名:</label>
 			  <div class="col-md-6">
-			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
-				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  	  <input type="text" class="form-control" ng-model="UserInfo.name"  name="myname" required aria-describedby="inputSuccess3Status">
+				  <span style="color:red" ng-show="userForm.myname.$dirty && userForm.myname.$invalid"><span ng-show="userForm.myname.$error.required">姓名是必须的。</span></span>
 			  </div>
 			</div>
 			<div class="form-group  has-feedback">
-			  <label class="control-label col-md-3 text-center" for="inputSuccess3">手机号:</label>
+			  <label class="control-label col-md-3 text-center" >手机号:</label>
 			  <div class="col-md-6">
-			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
-				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			  	  <input type="number" class="form-control" ng-model="UserInfo.mobile" name="mobile" required aria-describedby="inputSuccess3Status">
+				  <span style="color:red" ng-show="userForm.mobile.$dirty && userForm.mobile.$invalid"><span ng-show="userForm.mobile.$error.required">手机号必须的。</span></span>
 			  </div>
 			</div>
 			<div class="form-group  has-feedback">
-			  <label class="control-label col-md-3 text-center" for="inputSuccess3">部门:</label>
+			  <label class="control-label col-md-3 text-center" >部门:</label>
 			  <div class="col-md-6">
-			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
-				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				  <select ng-model="UserInfo.department.departmentId" class="form-control">
+					  <option ng-repeat="x in ddlDept" value={{x.departmentId}} >{{x.name}}</option>
+				  </select>
 			  </div>
 			</div>
 			<div class="form-group  has-feedback">
-			  <label class="control-label col-md-3 text-center" for="inputSuccess3">岗位:</label>
+			  <label class="control-label col-md-3 text-center" >岗位:</label>
 			  <div class="col-md-6">
-			  	  <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
-				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				  <select ng-model="UserInfo.position.positionId"  class="form-control">
+					  <option ng-repeat="x in ddlPos" value={{x.positionId}} >{{x.name}}</option>
+				  </select>
 			  </div>
 			</div>
+
 			<div class="form-group  has-feedback">
 			  <label class="control-label col-md-3 text-center" for="">关联品规:</label>
-			  <div class="col-md-2 selectBox">
-			  	 <select class="form-control" ng-model="good">
-				  <option>品种</option>
-				  <option>2</option>
-				  <option>2</option>
-				  <option>4</option>
-				  <option>5</option>
-				</select>
-			  </div>
-			   <div class="col-md-2 selectBox">
-			  	 <select class="form-control" ng-model="size">
-				  <option>规格</option>
-				  <option>2</option>
-				  <option>2</option>
-				  <option>4</option>
-				  <option>5</option>
-				</select>
-			  </div>
-			  <div class="col-md-2 selectBox">
-			  	 <select class="form-control" ng-model="area">
-				  <option>产地</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
-				</select>
-			  </div>
-			  <div class="col-md-1 text-center">
-			 	<button type="button" class="btn btn-default" ng-click="addGoods()">
-				  <span class="glyphicon glyphicon-plus"></span>
-				</button>
-			  </div>
+
+				<div class="col-md-3 selectBox">
+					<input type="text" ng-model="contactCodeName" ng-blur="getContactCodeSpec()" class="form-control" >
+				</div>
+
+				<div class="col-md-3 selectBox" ng-show="showDdlSpec">
+				   <select ng-model="ddlSpecId" ng-change="ddlSpecChange()" class="form-control">
+					   <option ng-repeat="x in listSpec" value={{x.keyid}} >{{x.keyname}}</option>
+				   </select>
+				</div>
+
+			    <div class="col-md-6 col-md-offset-3 selectBox sencond-line" ng-show="showDdlSpec">
+					<select class="form-control" ng-model="ddlAreaCodeSpec" ng-options="x.all_area_name for x in areaCodeSpec">
+					</select>
+				</div>
+
+			    <div class="col-md-1 text-center sencond-line" ng-show="showDdlSpec">
+					<button type="button" class="btn btn-default" ng-click="addCodeSpec()">
+					  <span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</div>
+
 			</div>
+
 		</form>
+
 	</div>
+
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 		    <table class="table">
-		       <!--  <tr>
-		          <td>三七</td>
-		          <td>统货</td>
-		          <td>四川省成都市青羊工业园区电子商务大厦</td>
-		          <td>
-					  <span class="glyphicon glyphicon-remove"></span>
-		          </td>
-		        </tr> -->
-		      	<tr ng-repeat="item in data.goods">
-		          <td>{{item.good}}</td>
-		          <td>{{item.size}}</td>
-		          <td>{{item.area}}</td>
-		          <td ng-click="delGoods($index)" class="delGoodsBtn">
+		      	<tr ng-repeat="item in contactCodeSpec">
+		          <td>{{item.variety_id_name}}</td>
+		          <td>{{item.spec_id_name}}</td>
+		          <td>{{item.all_area_name}}</td>
+		          <td ng-click="delCodeSpec($index)" class="delGoodsBtn">
 					  <span class="glyphicon glyphicon-remove"></span>
 		          </td>
 		        </tr>
 		    </table>
 		</div>
 	</div>
+
 	<div class="row createMemberBtns">
 		<div class="col-md-10 col-md-offset-1 text-center">
 			<button class="btn btn-default" ng-click="cancelCreateMember()"> 取消 </button>
-			<button class="btn btn-success" ng-click="submitCreateMember()"> 确定 </button>
+			<button class="btn btn-success" ng-click="submitCreateMember()" disabled="disabled"
+					ng-disabled="userForm.account.$dirty && userForm.account.$invalid ||
+								 userForm.myname.$dirty && userForm.myname.$invalid||
+								 userForm.mobile.$dirty && userForm.mobile.$invalid"
+			> 确定 </button>
+
 		</div>
 	</div>
 </div>
